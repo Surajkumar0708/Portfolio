@@ -4,9 +4,9 @@ import PlayAreaCard from "@/components/playarea/playarea-card";
 import Jokes from "./jokes/page";
 import GenerateForm from "./generateForm/page";
 import Link from "next/link";
-import jokeImage from "../../assets/Joke.jpg";
-import tictactoe from "../../assets/tictactoe.jpg";
-import formImage from "../../assets/formImage.svg";
+import jokeImage from "../../../public/Joke.jpg";
+import tictactoe from "../../../public/tictactoe.jpg";
+import formImage from "../../../public/formImage.svg";
 import strings from "../../strings.json";
 
 import "./playarea.css";

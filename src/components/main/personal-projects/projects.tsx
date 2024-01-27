@@ -1,7 +1,8 @@
 import React from "react";
 import Strings from "../../../strings.json";
 import Image from "next/image";
-import eComImage from "../../../assets/project-thumbnail.png";
+// import eComImage from "../../../assets/project-thumbnail.png";
+import eComImage from "../../../../public/project-thumbnail.png";
 
 import "./projects.css";
 import { useSelector } from "react-redux";
