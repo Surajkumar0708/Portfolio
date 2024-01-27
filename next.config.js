@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/",
+  basePath: "",
   assetPrefix: "https://main--portfolio2895.netlify.app/playarea",
   //   assetPrefix: "/skills",
   //   assetPrefix: "/project",
