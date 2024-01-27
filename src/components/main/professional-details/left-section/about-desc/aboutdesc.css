@@ -1,0 +1,10 @@
+.about_cont{
+    width: 70%;
+    margin: 20px auto 0;
+}
+
+.about_text{
+    text-align: center;
+    font-size: 16px;
+    color: rgb(152, 152, 152);
+}

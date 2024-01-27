@@ -1,0 +1,21 @@
+.form_container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form_container > * > h3 {
+  text-align: center;
+  border-bottom: 2px solid red;
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: red;
+}
+
+.form_btns {
+  text-align: center;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled) {
+  box-shadow: none !important;
+}

@@ -1,0 +1,37 @@
+.generate_header {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin: 6px;
+  padding-bottom: 6px;
+}
+
+.form_box {
+  margin: 10px 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.left_form_box {
+  padding: 15px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+#to-generate-forms,
+.to-generate-forms {
+  border: 0.3px solid black !important;
+}
+
+.generated_form {
+  width: 35%;
+}
+
+.radio_btns {
+  display: flex;
+}
+.radio_btns > div {
+  margin: 0 10px 0 0;
+}

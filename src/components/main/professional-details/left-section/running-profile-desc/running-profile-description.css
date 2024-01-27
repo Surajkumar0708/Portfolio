@@ -1,0 +1,7 @@
+.running_desc{
+    font-size: 30px;
+    text-align: center;
+    transition: 1s;
+    font-weight: 700;
+    height: 8vh;
+}

@@ -1,0 +1,33 @@
+.projects_container {
+  padding: 40px 0;
+  background-color: rgb(241, 239, 239);
+}
+
+.projects_container > .project_text_container > h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.projects_container > .projects_item_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects_container > .projects_item_container > .project_item {
+  margin: 10px;
+}
+
+.project_image {
+  mix-blend-mode: multiply;
+}
+
+.project_details {
+  margin: 15px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+}
