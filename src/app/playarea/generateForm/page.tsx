@@ -62,12 +62,10 @@ const GenerateForm = () => {
     return (
       <div>
         {Object.entries(formData).map((key: any, i: any) => (
-          <React.Fragment>
-            <h2>
-              <strong>{typeOfLabels[i] || `input - ${+key[0] + 1}`}</strong> :{" "}
-              {key[1]}
-            </h2>
-          </React.Fragment>
+          <h2 key={i}>
+            <strong>{typeOfLabels[i] || `input - ${+key[0] + 1}`}</strong> :{" "}
+            {key[1]}
+          </h2>
         ))}
       </div>
     );
