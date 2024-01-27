@@ -59,7 +59,7 @@ const ImageCarousal = () => {
         <div className="image_box">
           {!!listOfImages.length &&
             listOfImages.map((img: any, i: number) => (
-              <div className="image_card">
+              <div className="image_card" key={i}>
                 <div
                   className="remove_image"
                   onClick={() => removeImageFromList(i)}

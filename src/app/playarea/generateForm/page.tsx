@@ -93,7 +93,7 @@ const GenerateForm = () => {
                   : "to-generate-forms shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline";
               const isRadioBtnTrue = typeOfInputs[i] === "radio";
               return (
-                <div>
+                <div key={i}>
                   {!isRadioBtnTrue && (
                     <div className="mb-2">
                       <label
