@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/docs",
+  basePath: "",
   //   assetPrefix: "/experience",
   //   assetPrefix: "/skills",
   //   assetPrefix: "/project",
