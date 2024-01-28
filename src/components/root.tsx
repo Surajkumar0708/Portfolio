@@ -7,9 +7,10 @@ import { videoActions } from "./store/slices/videoSlice/videoSlice";
 const Root = () => {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       dispatch(videoActions.setVideoToPlay(true));
     }, 5000);
+    return () => clearTimeout(timer);
   }, []);
   return (
     <React.Fragment>

@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "./video-intro.css";
 import { videoActions } from "@/components/store/slices/videoSlice/videoSlice";
-import Image from "next/image";
 
 const VideoIntro = () => {
   const dispatch = useDispatch();
