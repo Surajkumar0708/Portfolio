@@ -102,12 +102,8 @@ const Header = () => {
       <nav className="right_container">
         <ul className="nav_links">
           {navLinks?.map(({ name, path }: any) => (
-            <li>
-              <Link
-                style={{ color: websiteVal.headerTextColor }}
-                href={path}
-                key={name}
-              >
+            <li key={name}>
+              <Link style={{ color: websiteVal.headerTextColor }} href={path}>
                 {name}
               </Link>
             </li>
