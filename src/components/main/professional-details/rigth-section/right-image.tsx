@@ -4,6 +4,8 @@ import { Box } from "@mui/material";
 import image from "../../../../../public/profilePic.jpg";
 import { useSelector } from "react-redux";
 
+import "./rightImage.css";
+
 const ProfilePicture = () => {
   const { profilePic } = useSelector(
     (state: any) => state.custSlice.formValues

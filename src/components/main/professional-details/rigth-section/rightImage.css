@@ -1,0 +1,12 @@
+/* for mobile use */
+
+@media only screen and (max-width: 600px) {
+  .css-126n10b {
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .css-126n10b img {
+    width: 100%;
+  }
+}

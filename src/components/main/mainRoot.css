@@ -1,0 +1,18 @@
+.main_root {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  position: relative;
+  top: 55px;
+}
+
+/* for mobile use*/
+
+@media only screen and (max-width: 600px) {
+  .main_root {
+    display: block;
+    height: 100vh;
+  }
+}

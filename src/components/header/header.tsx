@@ -95,18 +95,22 @@ const Header = () => {
       className="header_container"
     >
       <div className="left_container">
-        {websiteVal.headerLogoName.toLocaleUpperCase() || Strings.logoText}
+        <h2>
+          {websiteVal.headerLogoName.toLocaleUpperCase() || Strings.logoText}
+        </h2>
       </div>
       <nav className="right_container">
         <ul className="nav_links">
           {navLinks?.map(({ name, path }: any) => (
-            <Link
-              style={{ color: websiteVal.headerTextColor }}
-              href={path}
-              key={name}
-            >
-              {name}
-            </Link>
+            <li>
+              <Link
+                style={{ color: websiteVal.headerTextColor }}
+                href={path}
+                key={name}
+              >
+                {name}
+              </Link>
+            </li>
           ))}
         </ul>
         <ul className="social_links">
@@ -116,7 +120,9 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <RiInstagramFill />
+            <a>
+              <RiInstagramFill />
+            </a>
           </li>
           <li>
             <a href={websiteVal?.LinkedIn || Strings.linkdIn} target="_blank">

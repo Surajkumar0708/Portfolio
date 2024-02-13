@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { Box } from "@mui/material";
 import ProfileDescription from "./professional-details/left-section/profile-desc";
 import ProfilePicture from "./professional-details/rigth-section/right-image";
 import Projects from "./personal-projects/projects";
-import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
+
+import "./mainRoot.css";
 
 const MainRoot = () => {
   const { bodyColor, bodyTextColor } = useSelector(
@@ -19,15 +20,16 @@ const MainRoot = () => {
       }}
     >
       <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "60vh",
-          position: "relative",
-          top: 55,
-        }}
+        className="main_root"
+        // style={{
+        //   display: "flex",
+        //   width: "100%",
+        //   justifyContent: "center",
+        //   alignItems: "center",
+        //   height: "60vh",
+        //   position: "relative",
+        //   top: 55,
+        // }}
       >
         <Box sx={{ width: "60%" }}>
           <ProfileDescription />

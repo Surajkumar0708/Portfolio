@@ -14,13 +14,13 @@ import "./playarea.css";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 const playAreaContent = [
-  {
-    id: 1,
-    name: "tic-tac-toe",
-    Component: PlayAreaCard,
-    imagePath: tictactoe,
-    path: "/playarea/tic-tac-toe",
-  },
+  // {
+  //   id: 1,
+  //   name: "tic-tac-toe",
+  //   Component: PlayAreaCard,
+  //   imagePath: tictactoe,
+  //   path: "/playarea/tic-tac-toe",
+  // },
   {
     id: 2,
     name: "Jokes",
