@@ -5,12 +5,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RiInstagramFill } from "react-icons/ri";
 import Strings from "../../strings.json";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { sweetAlertPopup } from "../websiteTour/driver";
-import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
 
 import "./header.css";
-import { videoActions } from "../store/slices/videoSlice/videoSlice";
 
 interface HeaderData {
   name: String;
@@ -42,8 +39,6 @@ const navPath: any = {
 };
 
 const Header = () => {
-  const currentPathName = usePathname();
-  const dispatch = useDispatch();
   const [isHamburger, setIsHamburger] = React.useState(false);
   const websiteVal = useSelector((state: any) => state.custSlice.formValues);
   const getNavLinksName = websiteVal?.reOrderNavLinks?.split(/\n|,/);
@@ -93,11 +88,6 @@ const Header = () => {
     },
   ];
 
-  const tourStart = () => {
-    dispatch(videoActions.setFirstTime(false));
-    sweetAlertPopup(dispatch);
-  };
-
   const mobileNavShow = isHamburger
     ? "right_container mobile_right_container"
     : "right_container mobile_right_container hidden";
@@ -114,9 +104,6 @@ const Header = () => {
         <h2>
           {websiteVal.headerLogoName.toLocaleUpperCase() || Strings.logoText}
         </h2>
-        {currentPathName === "/" && (
-          <button onClick={tourStart}>start tour</button>
-        )}
       </div>
       <nav className={mobileNavShow}>
         <ul className="nav_links">

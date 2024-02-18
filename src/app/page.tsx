@@ -18,10 +18,13 @@ export default function Home() {
     (state: any) => state.videoSlice
   );
   React.useEffect(() => {
-    if (!isFirstTime && window.innerWidth > 600) {
+    if (!isFirstTime) {
       const timer = setTimeout(() => {
-        // dispatch(videoActions.setVideoToPlay(true));
-        sweetAlertPopup(dispatch);
+        if (window.innerWidth < 600 && !isFirstTime) {
+          dispatch(videoActions.setVideoToPlay(true));
+        } else {
+          sweetAlertPopup(dispatch);
+        }
       }, 5000);
       return () => clearTimeout(timer);
     }

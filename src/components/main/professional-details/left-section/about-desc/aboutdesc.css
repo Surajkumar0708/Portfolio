@@ -1,12 +1,37 @@
 .about_cont {
   width: 70%;
   margin: 20px auto 0;
+  text-align: center;
 }
 
 .about_text {
   text-align: center;
   font-size: 16px;
   color: rgb(152, 152, 152);
+}
+
+.about_cont > .tour_btn {
+  border: 1px solid red;
+  padding: 5px 9px;
+  border-radius: 4px;
+  color: red;
+  margin-top: 10px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.about_cont > .tour_btn:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.about_cont > .disabled {
+  border: 1px solid grey;
+  padding: 5px 9px;
+  border-radius: 4px;
+  color: grey;
+  margin-top: 10px;
+  cursor: not-allowed;
 }
 
 /* for mobile use */
