@@ -15,10 +15,11 @@
   .about_cont {
     width: 100%;
   }
-  .css-a6rva7 {
-    width: 100%;
+  .css-a6rva7,
+  .css-126n10b {
+    width: 100% !important;
   }
   .about_text {
-    margin: 0 3px;
+    margin: 10px 3px 0;
   }
 }

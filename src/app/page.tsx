@@ -10,7 +10,6 @@ import { sweetAlertPopup } from "@/components/websiteTour/driver";
 
 import "../components/main/professional-details/video-intro/video-intro.css";
 import "../app/playarea/playarea.css";
-import { useRouter } from "next/router";
 
 export default function Home() {
   // const router = useRouter();
@@ -19,7 +18,7 @@ export default function Home() {
     (state: any) => state.videoSlice
   );
   React.useEffect(() => {
-    if (!isFirstTime) {
+    if (!isFirstTime && window.innerWidth > 600) {
       const timer = setTimeout(() => {
         // dispatch(videoActions.setVideoToPlay(true));
         sweetAlertPopup(dispatch);

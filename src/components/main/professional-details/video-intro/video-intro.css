@@ -31,13 +31,29 @@
 }
 
 .introduction-video {
-  /* border: 1px solid red; */
   position: fixed;
-  /* width: 200px;
-  height: 70px !important; */
   bottom: 30px;
   right: 50px;
   z-index: 100;
   background-color: red;
-  /* padding: ; */
+}
+
+/* for mobile devices*/
+
+@media only screen and (max-width: 600px) {
+  .introduction-video {
+    right: 10px !important;
+    bottom: 65px !important;
+  }
+
+  .video_box {
+    top: 36% !important;
+    left: 0 !important;
+  }
+
+  .video-mini-player {
+    width: 300px;
+    height: 80px !important;
+    left: 36px !important;
+  }
 }
