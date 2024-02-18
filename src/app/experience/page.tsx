@@ -7,7 +7,6 @@ import {
   HeaderContainer,
   H1,
   DescContainer,
-  DescPara,
   ListItem,
   ImgContainer,
   Para,
@@ -15,7 +14,6 @@ import {
 } from "./styledExplem";
 import { projects } from "./experienceDummyData";
 import Image from "next/image";
-import { isMobile } from "@/components/helpers/devices";
 import ExpDescription from "./expDescription";
 
 const Experience = () => {
