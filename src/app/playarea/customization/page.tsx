@@ -125,7 +125,7 @@ const CustomizeForm = () => {
               name="reOrderNavLinks"
               className="to-generate-forms shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               onChange={getInputValues}
-              placeholder="1: play area,"
+              placeholder={`1: play area, \n2: Profile,\n3: Project,`}
               rows={5}
               cols={30}
               value={custFormValues?.reOrderNavLinks}

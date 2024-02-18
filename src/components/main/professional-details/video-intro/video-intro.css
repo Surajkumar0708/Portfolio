@@ -29,3 +29,15 @@
   text-transform: capitalize;
   cursor: pointer;
 }
+
+.introduction-video {
+  /* border: 1px solid red; */
+  position: fixed;
+  /* width: 200px;
+  height: 70px !important; */
+  bottom: 30px;
+  right: 50px;
+  z-index: 100;
+  background-color: red;
+  /* padding: ; */
+}

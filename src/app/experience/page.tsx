@@ -15,6 +15,8 @@ import {
 } from "./styledExplem";
 import { projects } from "./experienceDummyData";
 import Image from "next/image";
+import { isMobile } from "@/components/helpers/devices";
+import ExpDescription from "./expDescription";
 
 const Experience = () => {
   const renderProjects = (project: any) => {
@@ -30,7 +32,7 @@ const Experience = () => {
             </Para>
           </HeaderContainer>
           <DescContainer>
-            <DescPara>{project.projectDesc}</DescPara>
+            <ExpDescription desc={project.projectDesc} />
             <ul>
               {project.usedSkills.map((skill: any, i: number) => (
                 <ListItem key={skill} className={`list-${i}`}>

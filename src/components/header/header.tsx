@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { RiInstagramFill } from "react-icons/ri";
 import Strings from "../../strings.json";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { sweetAlertPopup } from "../websiteTour/driver";
+import { usePathname } from "next/navigation";
 
 import "./header.css";
+import { videoActions } from "../store/slices/videoSlice/videoSlice";
 
 interface HeaderData {
   name: String;
@@ -30,7 +34,7 @@ const headerNav = [
 ];
 
 const navPath: any = {
-  0: "/",
+  0: "",
   1: "experience",
   2: "skills",
   3: "project",
@@ -38,6 +42,9 @@ const navPath: any = {
 };
 
 const Header = () => {
+  const currentPathName = usePathname();
+  const dispatch = useDispatch();
+  const [isHamburger, setIsHamburger] = React.useState(false);
   const websiteVal = useSelector((state: any) => state.custSlice.formValues);
   const getNavLinksName = websiteVal?.reOrderNavLinks?.split(/\n|,/);
   const getNames = getNavLinksName
@@ -86,6 +93,15 @@ const Header = () => {
     },
   ];
 
+  const tourStart = () => {
+    dispatch(videoActions.setFirstTime(false));
+    sweetAlertPopup(dispatch);
+  };
+
+  const mobileNavShow = isHamburger
+    ? "right_container mobile_right_container"
+    : "right_container mobile_right_container hidden";
+
   return (
     <header
       style={{
@@ -98,11 +114,14 @@ const Header = () => {
         <h2>
           {websiteVal.headerLogoName.toLocaleUpperCase() || Strings.logoText}
         </h2>
+        {currentPathName === "/" && (
+          <button onClick={tourStart}>start tour</button>
+        )}
       </div>
-      <nav className="right_container">
+      <nav className={mobileNavShow}>
         <ul className="nav_links">
-          {navLinks?.map(({ name, path }: any) => (
-            <li key={name}>
+          {navLinks?.map(({ name, path }: any, i: number) => (
+            <li className={`${name}`} key={name}>
               <Link style={{ color: websiteVal.headerTextColor }} href={path}>
                 {name}
               </Link>
@@ -127,6 +146,12 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <div
+        onClick={() => setIsHamburger((prev) => !prev)}
+        className="hamburger_icon"
+      >
+        <GiHamburgerMenu />
+      </div>
     </header>
   );
 };

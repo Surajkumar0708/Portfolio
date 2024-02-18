@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 const animationStyle = `
 font-weight: 700;
   transform: translateY(50px);
-  filter: blur(20px);`
+  filter: blur(20px);`;
 
 const slider = keyframes`
     to{
@@ -16,16 +16,20 @@ export const ExpWrapper = styled.div`
   transition: 0.5s;
 `;
 export const ExpContainer = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    align-items:center;
-    padding: 20px;
-    border-bottom: 2px solid black;
-    margin: 0 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid black;
+  margin: 0 20px;
 
-    &:last-child {
-      border: none;
-    }
+  &:last-child {
+    border: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 export const HeaderContainer = styled.div``;
 export const H1 = styled.h1`
@@ -35,20 +39,34 @@ export const H1 = styled.h1`
   filter: blur(20px);
   opacity: 0;
   animation: ${slider} 0.7s 0.3s linear 1 forwards;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 15px;
+    width: 100%;
+  }
 `;
 export const DescContainer = styled.div``;
 export const LeftContainer = styled.div`
-    width: 38%;
-    padding: 0 7px;
-    
+  width: 38%;
+  padding: 0 7px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 15px;
+    width: 100%;
+  }
 `;
 export const ImgContainer = styled.div`
-    width: 30%;
-    box-shadow: 10px 15px 5px 5px rgba(0,0,0,0.3);
-    transform: translateX(250px);
+  width: 30%;
+  box-shadow: 10px 15px 5px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(250px);
   filter: blur(20px);
   opacity: 0;
   animation: ${slider} 0.7s 0.3s linear 1 forwards;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 15px;
+    width: 100%;
+  }
 `;
 export const DescPara = styled.p`
   transform: translateX(-250px);
@@ -57,16 +75,16 @@ export const DescPara = styled.p`
   animation: ${slider} 1.2s 0.3s linear 1 forwards;
   margin: 10px 0;
   font-weight: 500;
-  color: #acaaaa
+  color: #acaaaa;
 `;
 export const Para = styled.p`
-transform: translateX(-250px);
+  transform: translateX(-250px);
   filter: blur(20px);
   opacity: 0;
   animation: ${slider} 0.9s 0.3s linear 1 forwards;
 `;
 export const ListItem = styled.li`
-display: inline-flex;
+  display: inline-flex;
   transform: translateY(50px);
   filter: blur(20px);
   opacity: 0;
@@ -76,7 +94,7 @@ display: inline-flex;
   font-weight: 700;
   margin-right: 13px;
   text-decoration: underline;
-  
+
   &.list-0 {
     animation-delay: 1.2s;
   }

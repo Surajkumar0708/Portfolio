@@ -22,7 +22,7 @@ const playAreaContent = [
   //   path: "/playarea/tic-tac-toe",
   // },
   {
-    id: 2,
+    id: 1,
     name: "Jokes",
     Component: Jokes,
     imagePath: jokeImage,
@@ -36,14 +36,14 @@ const playAreaContent = [
     path: "/playarea/generateForm",
   },
   {
-    id: 2,
+    id: 3,
     name: "Image Carousal",
     Component: PlayAreaCard,
     imagePath: carousal,
     path: "/playarea/imageCarousal",
   },
   {
-    id: 2,
+    id: 4,
     name: "Customization this WEBSITE",
     Component: PlayAreaCard,
     imagePath: formImage,
@@ -61,7 +61,7 @@ const PlayArea = () => {
     >
       {playAreaContent.map(({ id, name, path, imagePath }) => {
         return (
-          <div className="play-card" key={id}>
+          <div className="play-card" id={`play-card${id}`} key={id}>
             <div className="play-card-head">
               <h1>{name}</h1>
             </div>
