@@ -5,9 +5,16 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RiInstagramFill } from "react-icons/ri";
 import Strings from "../../strings.json";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { BsFillMicFill, BsFillMicMuteFill } from "react-icons/bs";
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 
 import "./header.css";
+import { useRouter } from "next/navigation";
+import { videoActions } from "../store/slices/videoSlice/videoSlice";
+import { playVideoBySpeech } from "../helpers/voiceCmdHelper";
 
 interface HeaderData {
   name: String;
@@ -21,6 +28,8 @@ interface HeaderData {
 4: experience,
 5: project
 */
+
+const speech = ["playvideo", "closevideo"];
 
 const headerNav = [
   Strings.profileText,
@@ -39,12 +48,38 @@ const navPath: any = {
 };
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition();
+  const router = useRouter();
+  const findingTheNavLinkWithVoice = headerNav.find((item: string) =>
+    transcript.toLowerCase().includes(item.toLowerCase())
+  );
+
   const [isHamburger, setIsHamburger] = React.useState(false);
   const websiteVal = useSelector((state: any) => state.custSlice.formValues);
+
   const getNavLinksName = websiteVal?.reOrderNavLinks?.split(/\n|,/);
   const getNames = getNavLinksName
     ?.map((name: string) => name.replace(/^\d+\s*:\s*/, "").trim())
     .filter((name: string) => name.length);
+
+  React.useEffect(() => {
+    if (findingTheNavLinkWithVoice) {
+      const redirectingLink =
+        findingTheNavLinkWithVoice === Strings.playText
+          ? "playarea"
+          : findingTheNavLinkWithVoice === Strings.profileText
+          ? ""
+          : findingTheNavLinkWithVoice;
+      router.push(`/${redirectingLink.toLowerCase()}`);
+    }
+    return () => resetTranscript();
+  }, [findingTheNavLinkWithVoice]);
 
   const getPath = (reorderName: string) => {
     const filtered = headerNav
@@ -88,6 +123,8 @@ const Header = () => {
     },
   ];
 
+  playVideoBySpeech(transcript, dispatch, resetTranscript);
+
   const mobileNavShow = isHamburger
     ? "right_container mobile_right_container"
     : "right_container mobile_right_container hidden";
@@ -129,6 +166,21 @@ const Header = () => {
           <li>
             <a href={websiteVal?.LinkedIn || Strings.linkdIn} target="_blank">
               <FaLinkedinIn />
+            </a>
+          </li>
+          <li>
+            <a>
+              {listening ? (
+                <BsFillMicMuteFill onClick={SpeechRecognition.stopListening} />
+              ) : (
+                <BsFillMicFill
+                  onClick={() =>
+                    SpeechRecognition.startListening({
+                      continuous: true,
+                    })
+                  }
+                />
+              )}
             </a>
           </li>
         </ul>

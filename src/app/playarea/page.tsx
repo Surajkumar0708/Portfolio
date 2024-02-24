@@ -1,4 +1,5 @@
 "use client";
+import "regenerator-runtime/runtime";
 import React from "react";
 import PlayAreaCard from "@/components/playarea/playarea-card";
 import Jokes from "./jokes/page";

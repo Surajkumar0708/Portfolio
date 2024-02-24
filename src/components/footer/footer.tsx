@@ -14,17 +14,11 @@ const Footer: React.FC = () => {
       style={{ backgroundColor: footerColor, color: footerTextColor }}
       className="footer"
     >
-      <div>
-        <h2>@Suraj Kumar</h2>
-      </div>
-      <div className="right_footer">
-        <ul>
-          <li>dummy</li>
-          <li>dummy</li>
-          <li>dummy</li>
-          <li>dummy</li>
-        </ul>
-      </div>
+      <p>
+        Crafted with ❤️ by SURAJ KUMAR, a frontend developer passionate about
+        creating engaging user experiences. Let's build something amazing
+        together!
+      </p>
     </footer>
   );
 };

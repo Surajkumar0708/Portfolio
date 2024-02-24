@@ -1,5 +1,5 @@
 "use client";
-
+import "regenerator-runtime/runtime";
 import React from "react";
 import { useSelector } from "react-redux";
 
