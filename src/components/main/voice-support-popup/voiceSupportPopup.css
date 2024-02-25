@@ -48,10 +48,11 @@
   .voice_popup {
     width: 80%;
     margin-top: 40px;
-    height: 45%;
+    height: auto;
   }
   .voice_cmds {
     font-size: 14px;
+    line-height: 20px;
   }
   .voice_cmds > h3 {
     font-size: 17px;
