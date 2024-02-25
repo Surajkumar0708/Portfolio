@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 import "../components/main/professional-details/video-intro/video-intro.css";
 import "../app/playarea/playarea.css";
+import VoicePopup from "@/components/main/voice-support-popup/voice-support-popup";
 
 export default function Home() {
   const router = useRouter();
@@ -19,6 +20,7 @@ export default function Home() {
   const { isVideoPlay, isMiniPlayer, isFirstTime } = useSelector(
     (state: any) => state.videoSlice
   );
+  const { voicePopupVisible } = useSelector((state: any) => state.profileSlice);
   React.useEffect(() => {
     if (!isFirstTime) {
       const timer = setTimeout(() => {
@@ -31,20 +33,15 @@ export default function Home() {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  const setToMiniPlayer = () => {
+    dispatch(videoActions.setVideoToMiniPlayer(true));
+  };
   return (
     <main>
-      {isVideoPlay && !isMiniPlayer && <Overlay />}
+      {isVideoPlay && !isMiniPlayer && <Overlay close={setToMiniPlayer} />}
       {isVideoPlay && <VideoIntro />}
-      {!isVideoPlay && (
-        <button
-          className="btn introduction-video"
-          onClick={() => {
-            dispatch(videoActions.setVideoToPlay(true));
-          }}
-        >
-          My Introduction Video
-        </button>
-      )}
+      {voicePopupVisible && <VoicePopup />}
       <Root />
     </main>
   );

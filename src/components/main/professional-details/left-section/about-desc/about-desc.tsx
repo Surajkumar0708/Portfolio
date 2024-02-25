@@ -30,8 +30,6 @@ const AboutDesc: React.FC = () => {
       });
   }, []);
 
-  console.log("========= test ismobile", isMobileView);
-
   const tourStart = () => {
     dispatch(videoActions.setFirstTime(false));
     sweetAlertPopup(dispatch, router);

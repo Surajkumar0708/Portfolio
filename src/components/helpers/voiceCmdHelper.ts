@@ -13,7 +13,6 @@ export const playVideoBySpeech = (
   const videoExist = videoRegex.test(speech);
   const closeExist = closeRegex.test(speech);
 
-  console.log("=========== test", playExist, videoExist, closeExist);
   if (playExist && videoExist) {
     dispatch(videoActions.setVideoToPlay(true));
     resetSpeech();

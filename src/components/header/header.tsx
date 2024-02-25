@@ -15,6 +15,7 @@ import "./header.css";
 import { useRouter } from "next/navigation";
 import { videoActions } from "../store/slices/videoSlice/videoSlice";
 import { playVideoBySpeech } from "../helpers/voiceCmdHelper";
+import { profileActions } from "../store/slices/profileSlice/profileSlice";
 
 interface HeaderData {
   name: String;
@@ -59,7 +60,7 @@ const Header = () => {
   const findingTheNavLinkWithVoice = headerNav.find((item: string) =>
     transcript.toLowerCase().includes(item.toLowerCase())
   );
-
+  const [isMobile, setIsMobile] = React.useState<boolean>(false);
   const [isHamburger, setIsHamburger] = React.useState(false);
   const websiteVal = useSelector((state: any) => state.custSlice.formValues);
 
@@ -80,6 +81,23 @@ const Header = () => {
     }
     return () => resetTranscript();
   }, [findingTheNavLinkWithVoice]);
+
+  React.useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsMobile(window.innerWidth < 768);
+    }
+
+    window.addEventListener("resize", () => {
+      setIsMobile(window.innerWidth < 768);
+    });
+
+    return () => {
+      window.addEventListener("resize", () => {
+        setIsMobile(window.innerWidth < 768);
+      });
+      setIsMobile(false);
+    };
+  }, []);
 
   const getPath = (reorderName: string) => {
     const filtered = headerNav
@@ -123,7 +141,18 @@ const Header = () => {
     },
   ];
 
+  const micIcon = () =>
+    listening ? (
+      <BsFillMicFill onClick={SpeechRecognition.stopListening} />
+    ) : (
+      <BsFillMicMuteFill onClick={showVoicePopup} />
+    );
+
   playVideoBySpeech(transcript, dispatch, resetTranscript);
+
+  const showVoicePopup = () => {
+    dispatch(profileActions.setVoicePopupVisible(true));
+  };
 
   const mobileNavShow = isHamburger
     ? "right_container mobile_right_container"
@@ -168,28 +197,16 @@ const Header = () => {
               <FaLinkedinIn />
             </a>
           </li>
-          <li>
-            <a>
-              {listening ? (
-                <BsFillMicMuteFill onClick={SpeechRecognition.stopListening} />
-              ) : (
-                <BsFillMicFill
-                  onClick={() =>
-                    SpeechRecognition.startListening({
-                      continuous: true,
-                    })
-                  }
-                />
-              )}
-            </a>
-          </li>
+          {!isMobile && (
+            <li>
+              <a>{micIcon()}</a>
+            </li>
+          )}
         </ul>
       </nav>
-      <div
-        onClick={() => setIsHamburger((prev) => !prev)}
-        className="hamburger_icon"
-      >
-        <GiHamburgerMenu />
+      <div className="hamburger_icon">
+        <GiHamburgerMenu onClick={() => setIsHamburger((prev) => !prev)} />
+        {isMobile && <a>{micIcon()}</a>}
       </div>
     </header>
   );

@@ -1,0 +1,62 @@
+.voice_popup {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 55%;
+  width: 45%;
+  background-color: #fff;
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 30px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.mic_icon {
+  display: flex;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  align-items: center;
+  font-size: 40px;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+}
+.voice_cmds {
+  text-align: center;
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+.voice_cmds > h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.voice_btns {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .voice_popup {
+    width: 80%;
+    margin-top: 40px;
+    height: 45%;
+  }
+  .voice_cmds {
+    font-size: 14px;
+  }
+  .voice_cmds > h3 {
+    font-size: 17px;
+  }
+  .voice_btns {
+    width: 60%;
+  }
+}

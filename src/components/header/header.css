@@ -96,7 +96,10 @@
   }
 
   .hamburger_icon {
-    display: block;
+    display: flex;
+    font-size: 25px;
+    width: 80px;
+    justify-content: space-between;
   }
   .hidden {
     left: -550px;

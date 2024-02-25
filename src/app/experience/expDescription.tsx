@@ -6,18 +6,25 @@ const ExpDescription = (props: any) => {
   const [isReadMore, setIsReadMore] = React.useState(false);
 
   React.useEffect(() => {
+    if (window.innerWidth < 600) {
+      setIsMobile(window.innerWidth < 600);
+    }
     window.addEventListener("resize", () => {
       setIsMobile(window.innerWidth < 600);
     });
 
-    return () =>
+    return () => {
       window.removeEventListener("resize", () => {
         setIsMobile(false);
       });
+      setIsMobile(false);
+    };
   }, []);
   const getDescription = () => {
     if (isMobile) {
-      return isReadMore ? props.desc : `${props.desc.substring(0, 190)}... `;
+      return isReadMore
+        ? `${props.desc} `
+        : `${props.desc.substring(0, 190)}... `;
     }
     return props.desc;
   };
