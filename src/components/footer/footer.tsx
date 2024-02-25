@@ -15,9 +15,9 @@ const Footer: React.FC = () => {
       className="footer"
     >
       <p>
-        Crafted with ❤️ by SURAJ KUMAR, a frontend developer passionate about
-        creating engaging user experiences. Let's build something amazing
-        together!
+        Crafted with &hearts; by SURAJ KUMAR, a frontend developer passionate
+        about creating engaging user experiences. Let&apos;s build something
+        amazing together!
       </p>
     </footer>
   );
