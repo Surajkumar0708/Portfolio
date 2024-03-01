@@ -19,3 +19,10 @@
 div:where(.swal2-container) button:where(.swal2-styled) {
   box-shadow: none !important;
 }
+
+@media only screen and (max-width: 600px) {
+  .form_container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -60,7 +60,7 @@ const GenerateForm = () => {
 
   const renderForm = () => {
     return (
-      <div>
+      <div className="form_data">
         {Object.entries(formData).map((key: any, i: any) => (
           <h2 key={i}>
             <strong>{typeOfLabels[i] || `input - ${+key[0] + 1}`}</strong> :{" "}
@@ -75,7 +75,7 @@ const GenerateForm = () => {
     setShowFormData(false);
     setFormData({});
   };
-
+  console.log("=========== showFromData", showFormData);
   const generateForm = () => {
     return (
       <form
@@ -160,6 +160,7 @@ const GenerateForm = () => {
         <button
           className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 my-1 ms-2 rounded"
           onClick={resetForm}
+          type="button"
         >
           {strings.resetForm}
         </button>
