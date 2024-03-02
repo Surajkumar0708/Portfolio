@@ -12,8 +12,10 @@ const slider = keyframes`
         transform: translateX(0)
     }
 `;
-export const ExpWrapper = styled.div`
+export const ExpWrapper = styled.div<any>`
   transition: 0.5s;
+  background-color: ${({ formColor }) => formColor?.bodyColor || ""};
+  color: ${({ formColor }) => formColor?.bodyTextColor || ""};
 `;
 export const ExpContainer = styled.div`
   display: flex;
@@ -27,7 +29,7 @@ export const ExpContainer = styled.div`
     border: none;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;
@@ -40,7 +42,7 @@ export const H1 = styled.h1`
   opacity: 0;
   animation: ${slider} 0.7s 0.3s linear 1 forwards;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     font-size: 15px;
     width: 100%;
   }
@@ -50,7 +52,13 @@ export const LeftContainer = styled.div`
   width: 38%;
   padding: 0 7px;
 
-  @media only screen and (max-width: 600px) {
+  /* for Tab devices */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 15px;
+    width: 50%;
+  }
+
+  @media only screen and (max-width: 768px) {
     font-size: 15px;
     width: 100%;
   }
@@ -63,7 +71,12 @@ export const ImgContainer = styled.div`
   opacity: 0;
   animation: ${slider} 0.7s 0.3s linear 1 forwards;
 
-  @media only screen and (max-width: 600px) {
+  /* for Tab devices */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 40%;
+  }
+
+  @media only screen and (max-width: 768px) {
     margin-top: 15px;
     width: 100%;
   }

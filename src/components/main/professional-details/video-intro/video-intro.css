@@ -40,7 +40,7 @@
 
 /* for mobile devices*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .introduction-video {
     right: 10px !important;
     bottom: 65px !important;

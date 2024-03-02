@@ -75,7 +75,6 @@ const GenerateForm = () => {
     setShowFormData(false);
     setFormData({});
   };
-  console.log("=========== showFromData", showFormData);
   const generateForm = () => {
     return (
       <form

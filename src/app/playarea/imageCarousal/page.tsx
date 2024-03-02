@@ -51,7 +51,7 @@ const ImageCarousal = () => {
           <h3>Please upload your pictures to create Carousal</h3>
           <input id="image" type="file" onChange={handleChange} />
           <button>
-            <label className="upload_btn" htmlFor="image">
+            <label className="btn" htmlFor="image">
               {strings.uploadImageText}
             </label>
           </button>

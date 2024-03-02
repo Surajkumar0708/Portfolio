@@ -8,9 +8,16 @@
   top: 55px;
 }
 
+/* for Tab use*/
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .main_root {
+    height: 33vh;
+  }
+}
+
 /* for mobile use*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .main_root {
     display: block;
     height: 100vh;

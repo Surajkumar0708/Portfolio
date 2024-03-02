@@ -15,8 +15,10 @@ import {
 import { projects } from "./experienceDummyData";
 import Image from "next/image";
 import ExpDescription from "./expDescription";
+import { useSelector } from "react-redux";
 
 const Experience = () => {
+  const formColors = useSelector((state: any) => state.custSlice.formValues);
   const renderProjects = (project: any) => {
     return (
       <ExpContainer key={project.name}>
@@ -47,7 +49,7 @@ const Experience = () => {
     );
   };
   return (
-    <ExpWrapper>
+    <ExpWrapper formColor={formColors}>
       {projects?.map((project) => renderProjects(project))}
     </ExpWrapper>
   );

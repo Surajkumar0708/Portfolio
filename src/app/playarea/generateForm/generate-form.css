@@ -20,6 +20,10 @@
   border-radius: 4px;
 }
 
+.form_data {
+  word-wrap: break-word;
+}
+
 #to-generate-forms,
 .to-generate-forms {
   border: 0.3px solid black !important;
@@ -36,7 +40,26 @@
   margin: 0 10px 0 0;
 }
 
-@media only screen and (max-width: 600px) {
+/* for Tab use*/
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .form_box {
+    flex-wrap: wrap;
+  }
+
+  .form_data {
+    width: 40%;
+    margin: 20px 0;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+  }
+
+  .generated_form {
+    margin-top: 20px;
+  }
+}
+
+/* for Mobile use*/
+@media only screen and (max-width: 768px) {
   .form_box {
     display: flex;
     flex-direction: column;

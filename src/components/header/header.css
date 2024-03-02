@@ -67,9 +67,18 @@
   color: #acaaaa;
 }
 
-/* for mobile */
+/* for Tab devices */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .right_container > .nav_links {
+    width: 60%;
+  }
+  .right_container > .social_links {
+    width: 22%;
+  }
+}
 
-@media only screen and (max-width: 600px) {
+/* for mobile */
+@media only screen and (max-width: 768px) {
   .header_container {
     width: 100%;
     display: flex;

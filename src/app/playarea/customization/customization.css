@@ -1,6 +1,7 @@
 .form_container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .form_container > * > h3 {
@@ -20,7 +21,8 @@ div:where(.swal2-container) button:where(.swal2-styled) {
   box-shadow: none !important;
 }
 
-@media only screen and (max-width: 600px) {
+/* for mobile devices */
+@media only screen and (max-width: 768px) {
   .form_container {
     flex-direction: column;
     text-align: center;

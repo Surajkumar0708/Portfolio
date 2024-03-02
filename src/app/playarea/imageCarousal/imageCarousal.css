@@ -17,14 +17,13 @@
   align-items: center;
 }
 
-.upload_btn {
+/* .upload_btn {
   background-color: red;
   padding: 3px 10px;
   color: #fff;
-  /* position: absolute;
-  left: 150px; */
   border-radius: 4px;
-}
+  cursor: pointer;
+} */
 
 .image_card {
   text-align: center;
