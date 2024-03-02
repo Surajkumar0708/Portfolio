@@ -10,6 +10,7 @@ import { BsFillMicFill, BsFillMicMuteFill } from "react-icons/bs";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import { ImCross } from "react-icons/im";
 
 import "./header.css";
 import { useRouter } from "next/navigation";
@@ -205,7 +206,11 @@ const Header = () => {
         </ul>
       </nav>
       <div className="hamburger_icon">
-        <GiHamburgerMenu onClick={() => setIsHamburger((prev) => !prev)} />
+        {!isHamburger ? (
+          <GiHamburgerMenu onClick={() => setIsHamburger(true)} />
+        ) : (
+          <ImCross onClick={() => setIsHamburger(false)} />
+        )}
         {isMobile && <a>{micIcon()}</a>}
       </div>
     </header>

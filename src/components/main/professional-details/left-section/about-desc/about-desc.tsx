@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { videoActions } from "@/components/store/slices/videoSlice/videoSlice";
 import { sweetAlertPopup } from "@/components/websiteTour/driver";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 const AboutDesc: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,14 @@ const AboutDesc: React.FC = () => {
   }, []);
 
   const tourStart = () => {
+    if (isMobileView) {
+      Swal.fire({
+        text: "This feature is not supported in mobile",
+        confirmButtonColor: "red",
+        confirmButtonText: "Ok",
+      });
+      return;
+    }
     dispatch(videoActions.setFirstTime(false));
     sweetAlertPopup(dispatch, router);
   };
@@ -42,7 +51,7 @@ const AboutDesc: React.FC = () => {
       </Typography>
       {
         <button
-          disabled={isMobileView}
+          // disabled={isMobileView}
           onClick={tourStart}
           className={btnClass}
         >
