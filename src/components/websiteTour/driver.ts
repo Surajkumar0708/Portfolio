@@ -27,6 +27,16 @@ export const sweetAlertPopup = (dispatch: any, router: any) => {
         },
       },
       {
+        element: ".mic",
+        popover: {
+          title: "This website supports voice commands",
+          description:
+            "You can navigate through this website with your voice with some limitation",
+          side: "top",
+          align: "start",
+        },
+      },
+      {
         element: ".Play",
         popover: {
           title: "Exploring Area",

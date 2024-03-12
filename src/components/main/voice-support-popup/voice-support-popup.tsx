@@ -13,20 +13,12 @@ interface Props {
 }
 const VoicePopup = () => {
   const dispatch = useDispatch();
-  const {
-    listening,
-    transcript,
-    browserSupportsSpeechRecognition,
-    resetTranscript,
-  } = useSpeechRecognition();
 
   const closeVoicePopup = () => {
     dispatch(profileActions.setVoicePopupVisible(false));
   };
   const startMic = () => {
-    SpeechRecognition.startListening({
-      continuous: true,
-    });
+    SpeechRecognition.startListening({ continuous: true });
     closeVoicePopup();
   };
   return (
@@ -37,12 +29,20 @@ const VoicePopup = () => {
           <FaMicrophone />
         </div>
         <div className="voice_cmds">
+          <div className="limitations">
+            <span>Note: This feature has some limitation </span>
+            <ul>
+              <li>1: You can navigate through different pages</li>
+              <li>2: You can play and close the introduction video</li>
+              <li>3: You can go to social pages</li>
+            </ul>
+          </div>
           <h3>Please use Phrases like mentioned below :-</h3>
           <p>
-            Try Go to <strong>Skills</strong>
+            Go to <strong>Skills</strong>
           </p>
           <p>
-            Try come back to <strong>Profile</strong>
+            come back to <strong>Profile</strong>
           </p>
           <p>
             For Video - use <strong>PLAY</strong> and <strong>VIDEO</strong>{" "}

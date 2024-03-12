@@ -79,6 +79,10 @@ export const Buttons = styled.button`
     box-shadow: 2px 2px 6px 5px rgba(255, 0, 0, 0.4);
   }
 
+  &:not(:hover){
+    opacity: 0.5;
+  }
+
   &.react {
     top: 20%;
     left: 10%;

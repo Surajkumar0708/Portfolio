@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 55%;
+  height: 75%;
   width: 45%;
   background-color: #fff;
   position: absolute;
@@ -12,6 +12,10 @@
   padding: 30px 20px;
   margin-top: 10px;
   border-radius: 6px;
+}
+
+.limitations {
+  border: 1px solid black;
 }
 
 .mic_icon {

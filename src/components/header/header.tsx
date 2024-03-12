@@ -152,6 +152,18 @@ const Header = () => {
   playVideoBySpeech(transcript, dispatch, resetTranscript);
 
   const showVoicePopup = () => {
+    const currentUrl = typeof window !== undefined ? window.location.href : "";
+    const isProfile = currentUrl.split("/");
+    if (
+      isProfile.includes("project") ||
+      isProfile.includes("skills") ||
+      isProfile.includes("experience") ||
+      isProfile.includes("playarea")
+    ) {
+      SpeechRecognition.startListening({ continuous: true });
+      return;
+    }
+
     dispatch(profileActions.setVoicePopupVisible(true));
   };
 
@@ -176,7 +188,11 @@ const Header = () => {
         <ul className="nav_links">
           {navLinks?.map(({ name, path }: any, i: number) => (
             <li className={`${name}`} key={name}>
-              <Link style={{ color: websiteVal.headerTextColor }} href={path}>
+              <Link
+                onClick={() => setIsHamburger(false)}
+                style={{ color: websiteVal.headerTextColor }}
+                href={path}
+              >
                 {name}
               </Link>
             </li>
@@ -199,7 +215,7 @@ const Header = () => {
             </a>
           </li>
           {!isMobile && (
-            <li>
+            <li className="mic">
               <a>{micIcon()}</a>
             </li>
           )}

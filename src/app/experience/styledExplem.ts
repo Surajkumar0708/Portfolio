@@ -31,6 +31,8 @@ export const ExpContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     flex-direction: column;
+    margin: 0 10px;
+    padding: 15px 5px 15px 0px;
   }
 `;
 export const HeaderContainer = styled.div``;
@@ -77,7 +79,7 @@ export const ImgContainer = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    margin-top: 15px;
+    margin: 18px 0;
     width: 100%;
   }
 `;
