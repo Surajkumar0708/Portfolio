@@ -71,6 +71,10 @@ const Header = () => {
     .filter((name: string) => name.length);
 
   React.useEffect(() => {
+    console.log(
+      "========== findingTheNavLinkWithVoice",
+      findingTheNavLinkWithVoice
+    );
     if (findingTheNavLinkWithVoice) {
       const redirectingLink =
         findingTheNavLinkWithVoice === Strings.playText
@@ -80,6 +84,7 @@ const Header = () => {
           : findingTheNavLinkWithVoice;
       router.push(`/${redirectingLink.toLowerCase()}`);
     }
+    console.log("========== current url", window.location.href);
     return () => resetTranscript();
   }, [findingTheNavLinkWithVoice]);
 
