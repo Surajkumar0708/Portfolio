@@ -3,6 +3,7 @@ import Strings from "../../../strings.json";
 import Image from "next/image";
 import eComImage from "../../../../public/e-commerce.png";
 import expenseTracker from "../../../../public/expense-tracker.png";
+import Link from "next/link";
 
 import "./projects.css";
 import { useSelector } from "react-redux";
@@ -18,6 +19,7 @@ interface Project {
   name: string;
   thumbnail: any;
   shortDesc: string;
+  uri: string;
 }
 const allProjects: Project[] = [
   {
@@ -25,6 +27,7 @@ const allProjects: Project[] = [
     name: "E-Commerce",
     thumbnail: eComImage,
     shortDesc: "An E-Commerce Website with product details with Add to Cart.",
+    uri: "https://e-commerce-navy-pi.vercel.app/",
   },
   {
     id: 2,
@@ -32,6 +35,7 @@ const allProjects: Project[] = [
     thumbnail: expenseTracker,
     shortDesc:
       "An application which can track you expense throughout the years.",
+    uri: "https://expense-tracker-tawny-five.vercel.app/",
   },
   // {
   //   id: 3,
@@ -55,16 +59,21 @@ const Projects = () => {
       </div>
       <div className="projects_item_container">
         {allProjects.map((project: Project) => (
-          <div key={project.id} className="project_details">
-            <h2 className="project_item">{project.name}</h2>
+          <a
+            target="_blank"
+            href={project?.uri}
+            key={project.id}
+            className="project_details"
+          >
+            <h2 className="project_item">{project?.name}</h2>
             <Image
               className="project_image"
               width={200}
-              src={project.thumbnail}
+              src={project?.thumbnail}
               alt="project-thumbnail"
             />
-            <p>{project.shortDesc}</p>
-          </div>
+            <p>{project?.shortDesc}</p>
+          </a>
         ))}
       </div>
     </section>

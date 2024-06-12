@@ -8,15 +8,17 @@ import "./imageCarousal.css";
 
 const ImageCarousal = () => {
   const [listOfImages, setListOfImages] = React.useState<any>([]);
-  const [currentIndex, setCurrentIndex] = React.useState<any>(0);
+  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
   const [selectedImage, setSelectedImage] = React.useState<any>(
     listOfImages[0]
   );
   const handleChange = (e: any) => {
-    const file = e.target.files[0];
-    if (file) {
-      const img = URL.createObjectURL(e.target.files[0]);
-      setListOfImages((prev: any) => [...prev, img]);
+    for (let i = 0; i < e.target.files.length; i++) {
+      const file = e.target.files[i];
+      if (file) {
+        const img = URL.createObjectURL(e.target.files[i]);
+        setListOfImages((prev: any) => [...prev, img]);
+      }
     }
   };
 
@@ -48,8 +50,8 @@ const ImageCarousal = () => {
     <div>
       <div className="btn_img_group">
         <div className="carousal_top_section">
-          <h3>Please upload your pictures to create Carousal</h3>
-          <input id="image" type="file" onChange={handleChange} />
+          <h3>{strings.imageSliderDes}</h3>
+          <input id="image" type="file" multiple onChange={handleChange} />
           <button>
             <label className="btn" htmlFor="image">
               {strings.uploadImageText}

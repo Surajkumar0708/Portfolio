@@ -9,6 +9,7 @@ import jokeImage from "../../../public/Joke.jpg";
 import tictactoe from "../../../public/tictactoe.jpg";
 import formImage from "../../../public/formImage.svg";
 import carousal from "../../../public/carousel.jpg";
+import customizationimage from "../../../public/customization.png";
 import strings from "../../strings.json";
 
 import "./playarea.css";
@@ -38,7 +39,7 @@ const playAreaContent = [
   },
   {
     id: 3,
-    name: "Image Carousal",
+    name: "Automatic Image Slider",
     Component: PlayAreaCard,
     imagePath: carousal,
     path: "/playarea/imageCarousal",
@@ -47,7 +48,7 @@ const playAreaContent = [
     id: 4,
     name: "Customization this WEBSITE",
     Component: PlayAreaCard,
-    imagePath: formImage,
+    imagePath: customizationimage,
     path: "/playarea/customization",
   },
 ];

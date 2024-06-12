@@ -9,7 +9,7 @@ export const projects = [
     to: "Current",
     projectName: "This project is based on Medical",
     projectDesc:
-      "Working as a Consultant on Medical Project. I have integrated one Bill related feature where user can upload the bill for TA and DA and user can edit the bill details as well as delete the bill. \n Enhancing the existing feature with more pratical use cases. \n Fixing priority bugs for both React-Native and React-JS based project",
+      "Working as a Consultant on Medical Project. Implemented Approve expense where Admin can approve, reject and download the expense report for single or multiple users (MR), Monthly and Daily expense report can be seen and download as excel and PDF. Can also upload and modify the bills on behalf of user. Implemented bill library, where admin can download all the bill(TA, DA, etc) of any user(MR) or all the users which will be in PDF format.\n Enhancing the existing feature with more pratical use cases. \n Fixing priority bugs for both React-Native and React-JS based project",
     usedSkills: [
       "React JS",
       "React Native",
@@ -47,7 +47,7 @@ export const projects = [
     to: "Oct-2022",
     projectName: "This project is for OTT",
     projectDesc:
-      "Worked as a frontend developer on an OTT app. Where I have developed Umbrella Feature where user can login with multiple account and whatever the account user select, the app will automatically customise as per the selected account. Implemented colour button of the remote to open specific menu item. Four different colour buttons working four different task (opening four different menu) as well as bug fixes.",
+      "Worked as Frontend Developer in Health domain. where I had integrated two sections in that domain. Admin can check the appointments for the Doctors as well as manage their employees also can check and manage the inventories with help to HTML5, CSS, Javascript, React Js, Redux.",
     usedSkills: [
       "React JS",
       "Javascript",

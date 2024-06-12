@@ -3,14 +3,17 @@ import React from "react";
 import strings from "../../../../../strings.json";
 
 import "./running-profile-description.css";
+import { useSelector } from "react-redux";
 
 const RunningProfileDescription: React.FC = () => {
   const [name, setName] = React.useState<string>("");
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
   const [paraIsCompleted, setParaIsCompleted] = React.useState<boolean>(false);
+  const websiteVal = useSelector((state: any) => state.custSlice.formValues);
+
   const paraToPreview = paraIsCompleted
-    ? strings.profileDes2
-    : strings.profileDes1;
+    ? websiteVal?.text2 ?? strings.profileDes2
+    : websiteVal?.text1 ?? strings.profileDes1;
   const writingLetters = (text: string, index: number) => {
     if (index <= text.length) {
       const delay = text[index] === " " ? 0 : 200;

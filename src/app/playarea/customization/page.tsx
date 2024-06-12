@@ -199,6 +199,34 @@ const CustomizeForm = () => {
               className="block text-gray-700 text-sm font-bold mb-1"
               htmlFor=""
             >
+              Text 1 for profile
+            </label>
+            <input
+              name="text1"
+              className="to-generate-forms shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={getInputValues}
+              type="text"
+            />
+          </div>
+          <div className="m-2">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-1"
+              htmlFor=""
+            >
+              Text 2 for profile
+            </label>
+            <input
+              name="text2"
+              className="to-generate-forms shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={getInputValues}
+              type="text"
+            />
+          </div>
+          <div className="m-2">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-1"
+              htmlFor=""
+            >
               Choose color for body
             </label>
             <input

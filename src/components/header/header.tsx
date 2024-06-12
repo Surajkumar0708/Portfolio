@@ -17,19 +17,12 @@ import { useRouter } from "next/navigation";
 import { videoActions } from "../store/slices/videoSlice/videoSlice";
 import { playVideoBySpeech } from "../helpers/voiceCmdHelper";
 import { profileActions } from "../store/slices/profileSlice/profileSlice";
+import { SocialLinks } from "../types/types";
 
 interface HeaderData {
   name: String;
   path: String | undefined;
 }
-
-/*
-1: Skills,
-2: Profile,
-3: play area,
-4: experience,
-5: project
-*/
 
 const speech = ["playvideo", "closevideo"];
 
@@ -58,12 +51,12 @@ const Header = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
   const router = useRouter();
-  const findingTheNavLinkWithVoice = headerNav.find((item: string) =>
-    transcript.toLowerCase().includes(item.toLowerCase())
+  const websiteVal = useSelector((state: any) => state.custSlice.formValues);
+  const findingTheNavLinkWithVoice = [...headerNav, "get", "git", "link"].find(
+    (item: string) => transcript.toLowerCase().includes(item.toLowerCase())
   );
   const [isMobile, setIsMobile] = React.useState<boolean>(false);
   const [isHamburger, setIsHamburger] = React.useState(false);
-  const websiteVal = useSelector((state: any) => state.custSlice.formValues);
 
   const getNavLinksName = websiteVal?.reOrderNavLinks?.split(/\n|,/);
   const getNames = getNavLinksName
@@ -71,10 +64,6 @@ const Header = () => {
     .filter((name: string) => name.length);
 
   React.useEffect(() => {
-    console.log(
-      "========== findingTheNavLinkWithVoice",
-      findingTheNavLinkWithVoice
-    );
     if (findingTheNavLinkWithVoice) {
       const redirectingLink =
         findingTheNavLinkWithVoice === Strings.playText
@@ -82,9 +71,14 @@ const Header = () => {
           : findingTheNavLinkWithVoice === Strings.profileText
           ? ""
           : findingTheNavLinkWithVoice;
-      router.push(`/${redirectingLink.toLowerCase()}`);
+      if (findingTheNavLinkWithVoice === SocialLinks.GIT) {
+        window.open(websiteVal?.GitHub || Strings?.github, "_blank");
+      } else if (findingTheNavLinkWithVoice === SocialLinks.LINKEDIN) {
+        window.open(websiteVal?.LinkedIn || Strings.linkdIn, "_blank");
+      } else {
+        router.push(`/${redirectingLink.toLowerCase()}`);
+      }
     }
-    console.log("========== current url", window.location.href);
     return () => resetTranscript();
   }, [findingTheNavLinkWithVoice]);
 
@@ -209,11 +203,11 @@ const Header = () => {
               <FaGithub />
             </a>
           </li>
-          <li>
+          {/* <li>
             <a>
-              <RiInstagramFill />
+              <RiInstagramFill aria-disabled />
             </a>
-          </li>
+          </li> */}
           <li>
             <a href={websiteVal?.LinkedIn || Strings.linkdIn} target="_blank">
               <FaLinkedinIn />

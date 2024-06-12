@@ -19,18 +19,7 @@ const MainRoot = () => {
         backgroundColor: bodyColor || "#fff",
       }}
     >
-      <div
-        className="main_root"
-        // style={{
-        //   display: "flex",
-        //   width: "100%",
-        //   justifyContent: "center",
-        //   alignItems: "center",
-        //   height: "60vh",
-        //   position: "relative",
-        //   top: 55,
-        // }}
-      >
+      <div className="main_root">
         <Box sx={{ width: "60%" }}>
           <ProfileDescription />
         </Box>
