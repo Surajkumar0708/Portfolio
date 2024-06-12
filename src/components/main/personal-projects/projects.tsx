@@ -1,8 +1,8 @@
 import React from "react";
 import Strings from "../../../strings.json";
 import Image from "next/image";
-// import eComImage from "../../../assets/project-thumbnail.png";
-import eComImage from "../../../../public/project-thumbnail.png";
+import eComImage from "../../../../public/e-commerce.png";
+import expenseTracker from "../../../../public/expense-tracker.png";
 
 import "./projects.css";
 import { useSelector } from "react-redux";
@@ -24,20 +24,21 @@ const allProjects: Project[] = [
     id: 1,
     name: "E-Commerce",
     thumbnail: eComImage,
-    shortDesc: "An E-Commerce Website built for WEB",
+    shortDesc: "An E-Commerce Website with product details with Add to Cart.",
   },
   {
     id: 2,
-    name: "To Dos",
-    thumbnail: eComImage,
-    shortDesc: "An E-Commerce Website built for WEB",
+    name: "Expense Tracker",
+    thumbnail: expenseTracker,
+    shortDesc:
+      "An application which can track you expense throughout the years.",
   },
-  {
-    id: 3,
-    name: "Calculator",
-    thumbnail: eComImage,
-    shortDesc: "An E-Commerce Website built for WEB",
-  },
+  // {
+  //   id: 3,
+  //   name: "Calculator",
+  //   thumbnail: eComImage,
+  //   shortDesc: "An E-Commerce Website built for WEB",
+  // },
 ];
 
 const Projects = () => {

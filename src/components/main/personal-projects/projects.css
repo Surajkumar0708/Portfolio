@@ -21,6 +21,7 @@
 
 .project_image {
   mix-blend-mode: multiply;
+  margin: 10px 0;
 }
 
 .project_details {

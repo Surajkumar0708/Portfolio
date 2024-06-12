@@ -14,10 +14,10 @@ const GenerateForm = () => {
   const [isGenerateForm, setIsGenerateForm] = React.useState(false);
   const [showFormData, setShowFormData] = React.useState(false);
 
-  const [formData, setFormData] = React.useState({});
+  const [formData, setFormData] = React.useState<any>({});
 
   const getFormData = (value: any, i: number) => {
-    setFormData((prev) => ({ ...prev, [i]: [value] }));
+    setFormData((prev: any) => ({ ...prev, [i]: [value] }));
   };
 
   const getNumberOfInputToBeRender = (e: any) => {
@@ -63,8 +63,8 @@ const GenerateForm = () => {
       <div className="form_data">
         {Object.entries(formData).map((key: any, i: any) => (
           <h2 key={i}>
-            <strong>{typeOfLabels[i] || `input - ${+key[0] + 1}`}</strong> :{" "}
-            {key[1]}
+            <strong>{typeOfLabels[key[0]] || `input - ${+key[0] + 1}`}</strong>{" "}
+            : {key[1]}
           </h2>
         ))}
       </div>
@@ -104,11 +104,7 @@ const GenerateForm = () => {
                         className={isRadioBtn}
                         type={typeOfInputs[i] || "text"}
                         onChange={(e) => getFormData(e.target.value, i)}
-                        value={
-                          Object.values(formData).map((val: any) => val[0])[
-                            i
-                          ] || ""
-                        }
+                        value={formData[i] !== undefined ? formData[i][0] : ""}
                       />
                     </div>
                   )}
@@ -130,6 +126,9 @@ const GenerateForm = () => {
                             id={`index${i}`}
                             className={isRadioBtn}
                             type={typeOfInputs[i] || "text"}
+                            onChange={(e) =>
+                              getFormData(e.target.checked && `Male`, i)
+                            }
                           />
                         </div>
                         <div>
@@ -144,6 +143,9 @@ const GenerateForm = () => {
                             id={`index${i}`}
                             className={isRadioBtn}
                             type={typeOfInputs[i] || "text"}
+                            onChange={(e) =>
+                              getFormData(e.target.checked && `Female`, i)
+                            }
                           />
                         </div>
                       </div>
@@ -173,6 +175,7 @@ const GenerateForm = () => {
   return (
     <React.Fragment>
       <h2 className="generate_header">Generate Form</h2>
+      <p className="generateFormDesc">{strings.generateFormDescription}</p>
       <div className="form_box">
         <div className="left_form_box">
           <div>

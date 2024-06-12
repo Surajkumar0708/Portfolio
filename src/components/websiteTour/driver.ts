@@ -14,6 +14,7 @@ export const sweetAlertPopup = (dispatch: any, router: any) => {
           description: "You are on profile page",
           side: "left",
           align: "start",
+          popoverClass: "driverjs-theme",
         },
       },
       {

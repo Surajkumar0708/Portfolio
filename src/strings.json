@@ -21,5 +21,6 @@
   "inputType": "Please provide INPUT's type",
   "labelTagName": "label name",
   "inputTagName": "input name",
-  "uploadImageText": "Upload Image"
+  "uploadImageText": "Upload Image",
+  "generateFormDescription": "On this page, you can generate a form with any number of input fields you desire. Simply indicate the quantity of input fields you wish to include in your form, provide labels for each input field, and specify the input type (e.g., text, number, radio button, etc.)."
 }

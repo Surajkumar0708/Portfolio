@@ -13,7 +13,7 @@ const RunningProfileDescription: React.FC = () => {
     : strings.profileDes1;
   const writingLetters = (text: string, index: number) => {
     if (index <= text.length) {
-      const delay = text[index] === " " ? 0 : 380;
+      const delay = text[index] === " " ? 0 : 200;
       const timerId = setTimeout(() => {
         setName((prev) => `${prev}${text[index]}`);
         setCurrentIndex(currentIndex + 1);
