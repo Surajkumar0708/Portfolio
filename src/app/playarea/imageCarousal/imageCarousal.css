@@ -54,12 +54,15 @@
   display: flex;
   padding: 20px;
   justify-content: center;
+  max-width: 70%;
+  flex-wrap: wrap;
 }
 
 .image_box > * > .small_img_card {
-  border: 1px solid black;
+  border: 1px solid red;
   border-radius: 5px;
   cursor: pointer;
+  height: 60px;
 }
 .image_box > .image_card:hover {
   transform: scale(1.1);
@@ -81,4 +84,22 @@
   height: 100%;
   object-fit: contain;
   z-index: -100;
+}
+
+.delay{
+  background-color: #f4f1f1;
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.clear-all{
+  height: 30px;
+}
+
+.delay-container{
+  margin-top: 10px;
+}
+.desc-image{
+  margin-bottom: 7px;
 }
