@@ -1,5 +1,5 @@
 "use client";
-
+import "regenerator-runtime/runtime";
 import Image from "next/image";
 import React from "react";
 import strings from "../../../strings.json";
@@ -12,6 +12,7 @@ const ImageCarousal = () => {
   const [selectedImage, setSelectedImage] = React.useState<any>(
     listOfImages[0]
   );
+  const [delay, setDelay] = React.useState<number>(1000);
   const handleChange = (e: any) => {
     for (let i = 0; i < e.target.files.length; i++) {
       const file = e.target.files[i];
@@ -29,7 +30,7 @@ const ImageCarousal = () => {
           currentIndex === listOfImages.length - 1 ? 0 : currentIndex + 1;
         setCurrentIndex(index);
         setSelectedImage(listOfImages[currentIndex]);
-      }, 1000);
+      }, delay);
 
       return () => clearTimeout(timer);
     }
@@ -50,17 +51,28 @@ const ImageCarousal = () => {
     <div>
       <div className="btn_img_group">
         <div className="carousal_top_section">
-          <h3>{strings.imageSliderDes}</h3>
+          <h3 className="desc-image">{strings.imageSliderDes}</h3>
           <input id="image" type="file" multiple onChange={handleChange} />
           <button>
             <label className="btn" htmlFor="image">
               {strings.uploadImageText}
             </label>
           </button>
+          {!!listOfImages?.length && (
+            <div className="delay-container">
+              <label htmlFor="delay">Please add delay in milliseconds</label>
+              <input
+                className="delay"
+                id="delay"
+                type="number"
+                onChange={(e) => setDelay(+e?.target?.value)}
+              />
+            </div>
+          )}
         </div>
         <div className="image_box">
-          {!!listOfImages.length &&
-            listOfImages.map((img: any, i: number) => (
+          {!!listOfImages?.length &&
+            listOfImages?.map((img: any, i: number) => (
               <div className="image_card" key={i}>
                 <div
                   className="remove_image"
@@ -79,6 +91,14 @@ const ImageCarousal = () => {
                 <h2>{i + 1}</h2>
               </div>
             ))}
+          {!!listOfImages?.length && (
+            <button
+              className="btn clear-all"
+              onClick={() => setListOfImages([])}
+            >
+              Clear All
+            </button>
+          )}
         </div>
       </div>
       {!!listOfImages.length && (
