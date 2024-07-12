@@ -7,6 +7,7 @@ import Projects from "./personal-projects/projects";
 import { useSelector } from "react-redux";
 
 import "./mainRoot.css";
+import Contact from "./contact-me/contact-me";
 
 const MainRoot = () => {
   const { bodyColor, bodyTextColor } = useSelector(
@@ -37,6 +38,9 @@ const MainRoot = () => {
       >
         <Projects />
       </div>
+      <Box sx={{ backgroundColor: "rgb(257, 255, 255)", padding: "5px" }}>
+        <Contact />
+      </Box>
     </main>
   );
 };

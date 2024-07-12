@@ -25,5 +25,6 @@
   "uploadImageText": "Upload Image",
   "generateFormDescription": "On this page, you can generate a form with any number of input fields you desire. Simply indicate the quantity of input fields you wish to include in your form, provide labels for each input field, and specify the input type (e.g., text, number, radio button, etc.).",
   "imageSliderDes": "Please upload your pictures to create automatic Image Slider",
-  "footerDes2": "Feel free to copy. If you need any help, ping me !"
+  "footerDes2": "Feel free to copy. If you need any help, ping me !",
+  "contact": "Feel free to contact me."
 }

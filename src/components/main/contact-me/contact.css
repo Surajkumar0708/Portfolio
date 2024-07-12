@@ -1,0 +1,11 @@
+.contact_me_form {
+  width: 40%;
+  margin: 10px auto;
+  position: "relative";
+  top: 50;
+}
+
+.contactMe > p {
+  text-align: center;
+  font-size: 40px;
+}
