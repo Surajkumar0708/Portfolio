@@ -113,19 +113,19 @@ export default function Contact() {
   );
 
   const emailIsProcessing = () => (
-    <div className="formPara">
+    <div className="formPara sliderAnimation">
       <p>Your Email is sending...</p>
     </div>
   );
 
   const emailSentSuccess = () => (
-    <div className="email-success formPara">
+    <div className="email-success formPara sliderAnimation">
       <p>Email sent successfully. I'll get in touch with you shortly.</p>
     </div>
   );
 
   const emailError = () => (
-    <div className="email-error formPara">
+    <div className="email-error formPara sliderAnimation">
       <p>Something went wrong...</p>
     </div>
   );

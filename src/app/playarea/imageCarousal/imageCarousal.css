@@ -14,7 +14,7 @@
 .btn_img_group {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  /* align-items: center; */
 }
 
 /* .upload_btn {
@@ -69,6 +69,10 @@
   opacity: 0.6;
 }
 
+.currentSelectedImage {
+  transform: scale(1.1);
+}
+
 .selected_image_box {
   width: 100%;
   height: 70vh;
@@ -86,20 +90,98 @@
   z-index: -100;
 }
 
-.delay{
+.slide {
+  animation: slide 1s ease-in-out;
+}
+.fade {
+  animation: fade 1s ease-in-out;
+}
+
+.delay {
   background-color: #f4f1f1;
   padding: 3px 8px;
   border-radius: 5px;
   margin-left: 5px;
 }
 
-.clear-all{
+.clear-all {
   height: 30px;
 }
 
-.delay-container{
+.delay-container {
   margin-top: 10px;
 }
-.desc-image{
+.desc-image {
   margin-bottom: 7px;
+}
+
+.sliderBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  transition: all 0.3s;
+  user-select: none;
+  font-size: 8rem;
+}
+
+.prevBtn {
+  left: -100px;
+  animation: prevBtn 0.3s 0.5s linear 1 forwards;
+}
+.nextBtn {
+  right: -100px;
+  animation: nextBtn 0.3s 0.5s linear 1 forwards;
+}
+
+.nextBtn:hover {
+  transform: scale(1.2);
+}
+.prevBtn:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fade {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.2);
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes prevBtn {
+  from {
+    left: -100px;
+    opacity: 0;
+  }
+  to {
+    left: 150px;
+    opacity: 1;
+  }
+}
+
+@keyframes nextBtn {
+  from {
+    right: -100px;
+    opacity: 0;
+  }
+  to {
+    right: 150px;
+    opacity: 1;
+  }
 }
