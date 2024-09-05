@@ -30,7 +30,7 @@ const headerNav = [
   Strings.profileText,
   Strings.experienceText,
   Strings.skillsText,
-  Strings.projectText,
+  // Strings.projectText,
   Strings.playText,
 ];
 
@@ -38,7 +38,7 @@ const navPath: any = {
   0: "",
   1: "experience",
   2: "skills",
-  3: "project",
+  // 3: "project",
   4: "playarea",
 };
 
@@ -57,6 +57,7 @@ const Header = () => {
   );
   const [isMobile, setIsMobile] = React.useState<boolean>(false);
   const [isHamburger, setIsHamburger] = React.useState(false);
+  const [currentHeaderActive, setCurrentHeaderActive] = React.useState("");
 
   const getNavLinksName = websiteVal?.reOrderNavLinks?.split(/\n|,/);
   const getNames = getNavLinksName
@@ -131,10 +132,10 @@ const Header = () => {
       name: (websiteVal?.reOrderNavLinks && getNames[2]) || Strings.skillsText,
       path: `${getPathForNav(websiteVal, 2)}`,
     },
-    {
-      name: (websiteVal?.reOrderNavLinks && getNames[3]) || Strings.projectText,
-      path: `${getPathForNav(websiteVal, 3)}`,
-    },
+    // {
+    //   name: (websiteVal?.reOrderNavLinks && getNames[3]) || Strings.projectText,
+    //   path: `${getPathForNav(websiteVal, 3)}`,
+    // },
     {
       name: (websiteVal?.reOrderNavLinks && getNames[4]) || Strings.playText,
       path: `${getPathForNav(websiteVal, 4)}`,
@@ -170,6 +171,11 @@ const Header = () => {
     ? "right_container mobile_right_container"
     : "right_container mobile_right_container hidden";
 
+  const activeHeader = (headername: string) => {
+    setCurrentHeaderActive(headername);
+    isHamburger && setIsHamburger(false);
+  };
+
   return (
     <header
       style={{
@@ -186,9 +192,14 @@ const Header = () => {
       <nav className={mobileNavShow}>
         <ul className="nav_links">
           {navLinks?.map(({ name, path }: any, i: number) => (
-            <li className={`${name}`} key={name}>
+            <li
+              className={`${name} ${
+                currentHeaderActive === name ? "active" : ""
+              }`}
+              key={name}
+            >
               <Link
-                onClick={() => setIsHamburger(false)}
+                onClick={() => activeHeader(name)}
                 style={{ color: websiteVal.headerTextColor }}
                 href={path}
               >

@@ -46,7 +46,7 @@
   border-bottom: 1px solid red;
   color: #acaaaa;
 }
-.right_container > .nav_links > li > a:focus {
+.active {
   border-bottom: 1px solid red;
   color: #acaaaa;
 }
