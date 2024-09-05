@@ -120,7 +120,7 @@ export default function Contact() {
 
   const emailSentSuccess = () => (
     <div className="email-success formPara sliderAnimation">
-      <p>Email sent successfully. I'll get in touch with you shortly.</p>
+      <p>Email sent successfully. I will get in touch with you shortly.</p>
     </div>
   );
 
