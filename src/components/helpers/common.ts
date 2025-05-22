@@ -1,5 +1,5 @@
 export const getExpYearsAndMonths = () => {
-  const startDate: any = new Date(2021, 6, 7);
+  const startDate: any = new Date(2022, 10, 2);
   const currentDate: any = new Date();
   const differenceInTime: number = currentDate - startDate;
   const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
